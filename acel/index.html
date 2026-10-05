@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Acel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="star-container"></div>
+    <div  id="love-container"></div>
+    <audio loop id="bg-music" controls>
+        <source src="audio/WhatsApp Audio 2026-10-04 at 10.00.14.mp3"type="audio/mp3"\>
+    </audio>
+
+    <!-- 1. HALAMAN PEMBUKA -->
+    <section class=halaman
+    id="halaman-sandi">
+        
+        <h1>Haloo Acel ❤️</h1>
+        <div class="amplop-area">
+
+    <div class="amplop" onclick="bukaAmplop()">
+
+        <div class="surat-mini">
+            ❤️
+            <span>Untuk Acel</span>
+        </div>
+
+        <div class="amplop-belakang"></div>
+        <div class="amplop-kiri"></div>
+        <div class="amplop-kanan"></div>
+        <div class="amplop-depan"></div>
+
+        <div class="tutup-amplop"></div>
+
+        <div class="segel-love">❤️</div>
+
+    </div>
+
+    <p id="petunjuk-amplop">
+        Klik amplopnya 💌
+    </p>
+
+</div>
+        <h2>Selamat datang</h2>
+
+        <p>Masukkan sandi untuk membuka kejutan</p>
+
+        <input type="password" 
+        id="input-sandi"
+        placeholder="Masukan Sandi">
+
+        <button onclick="cekSandi()">
+            Masuk</button>
+
+        <p id="pesan-sandi"></p>
+    </section>
+
+
+    <!-- 2. UCAPAN SELAMAT ULANG TAHUN -->
+    <section class=halaman
+    id="ucapan-ulang-tahun">
+    
+        <h1>🎉 Happy Birthday 🎉</h1>
+        <div class="nama-acel">
+    <span class="love-kiri">❤️</span>
+
+    <span class="teks-acel">Acel</span>
+
+    <span class="love-kanan">❤️</span>
+
+</div>
+    <div class="birthday-cake">
+        <button id="tombol-tiup" onclick="tiupLilin()">
+    💨 Tiup Lilin
+</button>
+    <div class="candle">
+        <div class="flame"></div>
+    </div>
+
+    <div class="cake-top"></div>
+    <div class="cake-middle"></div>
+    <div class="cake-bottom"></div>
+
+    <div class="cake-shadow"></div>
+    </div>
+        <h2>Selamat datang di kejutan kecil ini 🎂✨, Acel! 🎂</h2>
+        
+        <div class="gift-area">
+
+    <div class="gift-box" onclick="bukaHadiah()">
+
+        <div class="gift-lid">
+            <div class="gift-ribbon-atas"></div>
+        </div>
+
+        <div class="gift-body">
+            <div class="gift-ribbon"></div>
+        </div>
+
+    </div>
+
+    <p id="gift-text">Klik hadiahnya 🎁</p>
+
+     </div>
+       
+     <button onclick="lanjutKeUcapan()">
+            Buka Ucapan 💌
+        </button>
+    </section>
+
+
+    <!-- 3. ISI UCAPAN -->
+    <section class=halaman
+    id="isi-ucapan">
+
+        <h1>Untuk Acel ❤️</h1>
+        <p id="teks-ketik"></p>
+
+        <p>
+        </p>
+
+        <button onclick="lanjutKePesan()">
+            Lanjut
+        </button>
+
+    </section>
+
+
+    <!-- 4. PESAN DAN KESAN -->
+    <section class=halaman
+    id="pesan-kesan">
+
+        <h1>Pesan & Kesan 💌</h1>
+
+        <h2>Pesan 💌</h2>
+
+        <p>
+            Selamat Hari Lahir, Rachel Natasya Faradita,
+            semesta pasti sedang tersenyum hari ini
+            karena merayakan hadir mu di dunia ini.
+            Aku tahu status kita sudah berbeda, Tapi
+            perasaan dan harapanku untuk kebahagianmu 
+            tidak pernah berkurang sedikit pun. Di sela
+            doa doa untuk mu, terselip satu harapan:
+            semoga ada kesempatan bagi kita untuk
+            kembali menyusun kepingan yang sempat
+            terpisah. Hari ini, rayakan harimu dengan
+            penuh suka cita ya. Selamat ulang tahun.
+            Sosok yang selalu punya tempat terindah 
+            di hatiku."
+        </p>
+
+        <h2>Kesan 💌</h2>
+
+        <p>
+            "Kehilanganmu membuat aku sadar betapa
+             berartinya kehadiranmu dalam hidupku.
+             Di luar sana aku mungkin terlihat 
+             baik-baik saja dan menjalani hari 
+             seperti biasa, tetapi di dalam hati, 
+             ada ruang besar yang mendadak kosong
+             sejak kamu pergi. Aku masih sangat 
+             menyayangimu, bahkan mungkin lebih 
+             dari yang kamu tahu. Meskipun
+             sekarang ego dan keadaan memaksa
+             kita untuk saling asing, di setiap 
+             sujud dan doaku, namamu adalah hal 
+             yang tidak pernah lupa aku sebut. Aku
+             tidak tahu apakah suatu saat jalan 
+             kita akan kembali bertemu, tetapi jika
+             boleh jujur, hatiku akan selalu menunggumu pulang."
+        </p>
+
+        <button onclick="lanjutKeFoto()">
+            Lihat Memori 📸
+        </button>
+
+    </section>
+
+
+    <!-- 6. FOTO MEMORI -->
+    <section class="halaman" id="foto-memori">
+
+        <h1>📸 Foto Memori</h1>
+
+        <div class="galeri">
+
+            <img src="images/WhatsApp Image 2026-10-03 at 20.16.11(6).jpeg" 
+             alt="Memori 1">
+
+            <img src="images/WhatsApp Image 2026-10-03 at 20.21.56(2).jpeg" 
+             alt="Memori 2">
+
+            <img src="images/WhatsApp Image 2026-10-02 at 15.04.23(3).jpeg" 
+             alt="Memori 3">
+
+             <img src="images/WhatsApp Image 2026-10-02 at 15.04.23.jpeg"
+             alt="Memori 4">
+
+             <img src="images/WhatsApp Image 2026-10-03 at 20.14.30.jpeg"
+             alt="Memori 5">
+
+             <img src="images/WhatsApp Image 2026-10-03 at 20.13.53.jpeg" 
+             alt="Memori 6">
+
+        </div>
+
+        <button onclick="lanjutKeVideo()">
+            Lihat Video 🎥
+        </button>
+
+    </section>
+
+
+    <!-- 6. VIDEO -->
+    <section class=halaman
+    id="video">
+
+        <h1>🎥 Video Kenangan</h1>
+
+        <video controls>
+            <source src="images/WhatsApp Video 2026-10-03 at 21.57.57(1).mp4" type="video/mp4">
+            Browser kamu tidak mendukung video.
+        </video>
+
+        <button onclick="lanjutKePenutup()">
+            Lanjut ❤️
+        </button>
+
+    </section>
+
+
+    <!-- 7. PENUTUP -->
+    <section class=halaman
+    id="penutup">
+
+        <h1>❤️ Terima Kasih ❤️</h1>
+
+        <p>
+            Terima kasih sudah menjadi bagian
+            dari cerita dan kenangan yang indah.
+        </p>
+
+        <h2>Happy Birthday, Acel! 🎂🎉</h2>
+
+        <button onclick="location.reload()">
+            Mulai Lagi 🔄
+        </button>
+
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

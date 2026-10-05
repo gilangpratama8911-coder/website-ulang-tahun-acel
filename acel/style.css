@@ -1,0 +1,1866 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(
+        -45deg,
+        #ff9a9e,
+        #fad0c4,
+        #ff85a1,
+        #cdb4db,
+        #ffc8dd
+    );
+
+    background-size: 400% 400%;
+
+    animation: backgroundBergerak 12s ease infinite;
+
+    color: white;
+    text-align: center;
+}
+
+body > section {
+    min-height: 100vh;
+
+    display: none;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+
+body > section.aktif {
+    display: flex;
+
+    animation:
+        muncul 0.9s
+        cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+p {
+    max-width: 600px;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+input {
+    width: 280px;
+    padding: 14px;
+
+    border: none;
+    border-radius: 25px;
+
+    margin: 15px 0;
+
+    text-align: center;
+    font-size: 16px;
+}
+
+button {
+    padding: 13px 25px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: white;
+    color: #ff6b81;
+
+    font-size: 16px;
+    cursor: pointer;
+
+    margin-top: 15px;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* GALERI 6 FOTO MEMORI */
+
+/* GALERI FOTO SLIDESHOW */
+.galeri {
+    position: relative;
+    width: 85%;
+    max-width: 350px;
+    height: 450px;
+    margin: 20px auto;
+}
+
+/* GALERI FOTO BERGESER */
+
+.galeri {
+    position: relative;
+    width: 85%;
+    max-width: 350px;
+    height: 450px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.galeri img {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    opacity: 0;
+
+    /* foto menunggu di sebelah kiri */
+    transform: translateX(-100%);
+
+    transition:
+        transform 0.8s ease,
+        opacity 0.8s ease;
+}
+
+/* FOTO YANG SEDANG TAMPIL */
+.galeri img.tampil {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* FOTO KELUAR KE KANAN */
+.galeri img.keluar {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+/* Hanya foto aktif yang terlihat */
+.galeri img.tampil {
+    opacity: 1;
+    transform: scale(1);
+}
+
+video {
+    width: 90%;
+    max-width: 700px;
+    border-radius: 20px;
+}
+
+#ucapan-vidio-ulang-tahun {
+    display: none;
+}
+
+/* =========================
+   ANIMASI HALAMAN
+========================= */
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body > section.aktif {
+    display: flex;
+    animation: muncul 1s ease;
+}
+
+
+/* Judul muncul dari atas */
+
+@keyframes judulMuncul {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.aktif h1 {
+    animation: judulMuncul 1s ease;
+}
+
+
+/* Isi muncul sedikit terlambat */
+
+.aktif p,
+.aktif h2 {
+    animation: muncul 1.2s ease;
+}
+
+
+/* Tombol */
+
+.aktif button {
+    animation: muncul 1.5s ease;
+    transition: transform 0.3s ease;
+}
+
+.aktif button:hover {
+    transform: scale(1.08);
+}
+
+@keyframes fotoMuncul {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.aktif img {
+    animation: fotoMuncul 1s ease;
+}
+
+#love-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.love {
+    position: absolute;
+    bottom: -40px;
+    animation: loveNaik 5s linear forwards;
+}
+
+@keyframes loveNaik {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.2);
+        opacity: 0;
+    }
+}
+#teks-ketik {
+    border-right: 3px solid white;
+    padding-right: 5px;
+    white-space: pre-line;
+    animation: kedip 0.7s infinite;
+}
+
+@keyframes kedip {
+    0%, 100% {
+        border-color: white;
+    }
+
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* =========================
+   ANIMASI HALAMAN PEMBUKA
+========================= */
+
+#halaman-sandi.aktif h1 {
+    animation: animasiPembuka 1.5s ease;
+}
+
+@keyframes animasiPembuka {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(-30px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.15) translateY(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================
+   ANIMASI HAPPY BIRTHDAY
+========================= */
+
+#ucapan-ulang-tahun.aktif h1 {
+    animation: birthdayBounce 1.2s ease;
+}
+
+@keyframes birthdayBounce {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    85% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* =========================
+   ANIMASI CONFETTI
+========================= */
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    width: 10px;
+    height: 18px;
+    z-index: 9999;
+    pointer-events: none;
+
+    animation: confettiJatuh 3s linear forwards;
+}
+
+@keyframes confettiJatuh {
+    0% {
+        transform: translateY(-20px) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   KUE ULANG TAHUN
+========================= */
+
+.birthday-cake {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 20px auto;
+
+    opacity: 0;
+    transform: translateY(100px) scale(0.5);
+}
+
+/* Kue muncul ketika halaman aktif */
+#ucapan-ulang-tahun.aktif .birthday-cake {
+    animation: cakeMuncul 1.5s ease forwards;
+}
+
+@keyframes cakeMuncul {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.5);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* BAGIAN KUE */
+
+.cake-bottom,
+.cake-middle,
+.cake-top {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px;
+}
+
+.cake-bottom {
+    width: 200px;
+    height: 65px;
+    bottom: 15px;
+    background: #ff6b81;
+}
+
+.cake-middle {
+    width: 165px;
+    height: 55px;
+    bottom: 75px;
+    background: #ff9eb5;
+}
+
+.cake-top {
+    width: 130px;
+    height: 45px;
+    bottom: 125px;
+    background: #fff0f3;
+}
+
+/* LILIN */
+
+.candle {
+    position: absolute;
+
+    width: 14px;
+    height: 50px;
+
+    background: repeating-linear-gradient(
+        45deg,
+        white,
+        white 5px,
+        #ff6b81 5px,
+        #ff6b81 10px
+    );
+
+    left: 50%;
+    bottom: 168px;
+
+    transform: translateX(-50%);
+
+    border-radius: 5px;
+
+    z-index: 5;
+}
+
+/* API LILIN */
+
+.flame {
+    position: absolute;
+
+    width: 18px;
+    height: 28px;
+
+    background: #ffd166;
+
+    border-radius: 50% 50% 50% 50%;
+
+    left: 50%;
+    top: -30px;
+
+    transform: translateX(-50%);
+
+    box-shadow:
+        0 0 10px #ffd166,
+        0 0 20px #ff9f1c,
+        0 0 30px #ff6b00;
+
+    animation: apiLilin 0.4s infinite alternate;
+}
+
+@keyframes apiLilin {
+    from {
+        transform: translateX(-50%) scale(1);
+    }
+
+    to {
+        transform: translateX(-50%) scale(0.85, 1.15);
+    }
+}
+
+/* BAYANGAN KUE */
+
+.cake-shadow {
+    position: absolute;
+
+    width: 210px;
+    height: 20px;
+
+    background: rgba(0,0,0,0.15);
+
+    border-radius: 50%;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+}
+
+/* =========================
+   LOVE MEMBENTUK HATI BESAR
+========================= */
+
+.love-bentuk {
+    position: fixed;
+    font-size: 22px;
+    z-index: 10000;
+    pointer-events: none;
+
+    left: 50%;
+    top: 50%;
+
+    opacity: 0;
+
+    animation: bentukHati 2.5s ease forwards;
+}
+
+@keyframes bentukHati {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(
+                var(--mulai-x),
+                var(--mulai-y)
+            )
+            scale(0.3)
+            rotate(0deg);
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translate(
+                var(--akhir-x),
+                var(--akhir-y)
+            )
+            scale(1)
+            rotate(360deg);
+    }
+}
+
+
+/* LOVE BESAR DI TENGAH */
+
+.hati-besar {
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%) scale(0);
+
+    font-size: 150px;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    animation: hatiBesarMuncul 1.5s ease forwards;
+}
+
+@keyframes hatiBesarMuncul {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+    }
+
+    60% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1.3);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+/* =========================
+   BINTANG BACKGROUND
+========================= */
+
+#star-container {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    background: white;
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 5px white,
+        0 0 10px white;
+
+    animation: bintangKelapKelip 2s infinite alternate;
+}
+
+@keyframes bintangKelapKelip {
+
+    0% {
+        opacity: 0.2;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+}
+
+
+/* Pastikan isi website di depan bintang */
+
+body > section {
+    position: relative;
+    z-index: 2;
+}
+/* =========================
+   ANIMASI KOTAK HADIAH
+========================= */
+
+.gift-area {
+    position: relative;
+    margin: 25px auto;
+    height: 190px;
+}
+
+.gift-box {
+    position: relative;
+    width: 150px;
+    height: 130px;
+    margin: auto;
+
+    cursor: pointer;
+
+    animation: hadiahGoyang 1.2s infinite;
+}
+
+
+/* BADAN KOTAK */
+
+.gift-body {
+    position: absolute;
+
+    width: 140px;
+    height: 100px;
+
+    bottom: 0;
+    left: 5px;
+
+    background: #ff4d6d;
+
+    border-radius: 5px;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+
+/* TUTUP HADIAH */
+
+.gift-lid {
+    position: absolute;
+
+    width: 160px;
+    height: 35px;
+
+    left: -5px;
+    top: 0;
+
+    background: #ff758f;
+
+    border-radius: 5px;
+
+    z-index: 3;
+
+    transition: 0.8s ease;
+}
+
+
+/* PITA VERTIKAL */
+
+.gift-ribbon {
+    position: absolute;
+
+    width: 25px;
+    height: 100%;
+
+    background: #ffd166;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+
+/* PITA PADA TUTUP */
+
+.gift-ribbon-atas {
+    position: absolute;
+
+    width: 25px;
+    height: 100%;
+
+    background: #ffd166;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+
+/* KOTAK BERGOYANG */
+
+@keyframes hadiahGoyang {
+
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-4deg);
+    }
+
+    50% {
+        transform: rotate(4deg);
+    }
+
+    75% {
+        transform: rotate(-2deg);
+    }
+}
+
+
+/* SAAT HADIAH DIBUKA */
+
+.gift-box.terbuka {
+    animation: none;
+}
+
+
+/* TUTUP TERBANG */
+
+.gift-box.terbuka .gift-lid {
+
+    transform:
+        translateY(-80px)
+        rotate(-15deg);
+
+    opacity: 0;
+}
+
+
+/* CAHAYA DARI KOTAK */
+
+.gift-box::after {
+
+    content: "✨";
+
+    position: absolute;
+
+    left: 50%;
+    top: 30px;
+
+    font-size: 0;
+
+    transform: translateX(-50%);
+
+    opacity: 0;
+
+    transition: 0.8s;
+}
+
+
+.gift-box.terbuka::after {
+
+    font-size: 70px;
+
+    top: -70px;
+
+    opacity: 1;
+}
+
+
+/* TEKS HADIAH */
+
+#gift-text {
+
+    margin-top: 15px;
+
+    font-size: 18px;
+
+    transition: 0.5s;
+}
+
+/* =========================
+   ANIMASI BALON TERBANG
+========================= */
+
+.balon {
+    position: fixed;
+    bottom: -120px;
+
+    width: 55px;
+    height: 70px;
+
+    border-radius: 50% 50% 45% 45%;
+
+    z-index: 5;
+    pointer-events: none;
+
+    opacity: 0.9;
+
+    animation: balonTerbang linear forwards;
+}
+
+
+/* UJUNG BALON */
+
+.balon::before {
+    content: "";
+
+    position: absolute;
+
+    bottom: -7px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid currentColor;
+}
+
+
+/* TALI BALON */
+
+.balon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 1px;
+    height: 70px;
+
+    background: rgba(255,255,255,0.8);
+
+    left: 50%;
+    top: 75px;
+}
+
+
+/* BALON NAIK */
+
+@keyframes balonTerbang {
+
+    0% {
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(-5deg);
+    }
+
+    25% {
+        transform:
+            translateY(-30vh)
+            translateX(20px)
+            rotate(5deg);
+    }
+
+    50% {
+        transform:
+            translateY(-60vh)
+            translateX(-20px)
+            rotate(-5deg);
+    }
+
+    75% {
+        transform:
+            translateY(-90vh)
+            translateX(20px)
+            rotate(5deg);
+    }
+
+    100% {
+        transform:
+            translateY(-130vh)
+            translateX(-10px)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+}
+
+/* =========================
+   AMPLOP CINTA
+========================= */
+
+.amplop-area {
+    margin: 25px auto;
+    height: 230px;
+    position: relative;
+}
+
+.amplop {
+    position: relative;
+
+    width: 240px;
+    height: 150px;
+
+    margin: auto;
+
+    cursor: pointer;
+
+    perspective: 1000px;
+
+    animation: amplopGoyang 2s infinite;
+}
+
+
+/* BELAKANG AMPLOP */
+
+.amplop-belakang {
+    position: absolute;
+
+    width: 240px;
+    height: 150px;
+
+    background: #ffb3c1;
+
+    border-radius: 8px;
+
+    z-index: 1;
+}
+
+
+/* SURAT */
+
+.surat-mini {
+    position: absolute;
+
+    width: 200px;
+    height: 120px;
+
+    left: 20px;
+    top: 15px;
+
+    background: white;
+
+    color: #ff4d6d;
+
+    border-radius: 8px;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 35px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+    transition: 1.2s ease;
+}
+
+.surat-mini span {
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+
+/* BAGIAN DEPAN AMPLOP */
+
+.amplop-depan {
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    left: 0;
+    bottom: 0;
+
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-bottom: 90px solid #ff758f;
+
+    z-index: 4;
+}
+
+
+/* SISI KIRI */
+
+.amplop-kiri {
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    left: 0;
+    bottom: 0;
+
+    border-top: 75px solid transparent;
+    border-bottom: 75px solid transparent;
+    border-left: 120px solid #ff8fa3;
+
+    z-index: 3;
+}
+
+
+/* SISI KANAN */
+
+.amplop-kanan {
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    right: 0;
+    bottom: 0;
+
+    border-top: 75px solid transparent;
+    border-bottom: 75px solid transparent;
+    border-right: 120px solid #ff8fa3;
+
+    z-index: 3;
+}
+
+
+/* TUTUP AMPLOP */
+
+.tutup-amplop {
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    left: 0;
+    top: 0;
+
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-top: 90px solid #ff4d6d;
+
+    z-index: 5;
+
+    transform-origin: top;
+
+    transition: transform 0.8s ease;
+}
+
+
+/* SEGEL LOVE */
+
+.segel-love {
+    position: absolute;
+
+    left: 50%;
+    top: 55px;
+
+    transform: translateX(-50%);
+
+    font-size: 32px;
+
+    z-index: 6;
+
+    transition: 0.5s;
+}
+
+
+/* AMPLOP BERGERAK */
+
+@keyframes amplopGoyang {
+
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-2deg);
+    }
+
+    75% {
+        transform: rotate(2deg);
+    }
+}
+
+
+/* =========================
+   AMPLOP DIBUKA
+========================= */
+
+.amplop.terbuka {
+    animation: none;
+}
+
+
+/* Tutup membuka ke belakang */
+
+.amplop.terbuka .tutup-amplop {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+
+/* Segel menghilang */
+
+.amplop.terbuka .segel-love {
+    opacity: 0;
+    transform:
+        translateX(-50%)
+        scale(0);
+}
+
+
+/* Surat keluar */
+
+.amplop.terbuka .surat-mini {
+    transform:
+        translateY(-100px)
+        scale(1.1);
+
+    z-index: 10;
+}
+
+
+/* PETUNJUK */
+
+#petunjuk-amplop {
+    margin-top: 20px;
+    transition: 0.5s;
+}
+
+/* =========================
+   KEMBANG API
+========================= */
+
+.firework-particle {
+    position: fixed;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 9998;
+
+    box-shadow: 0 0 8px currentColor;
+
+    animation: ledakanFirework 1.3s ease-out forwards;
+}
+
+
+@keyframes ledakanFirework {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(1);
+
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(
+                var(--firework-x),
+                var(--firework-y)
+            )
+            scale(0);
+
+        opacity: 0;
+    }
+}
+
+/* =========================
+   NAMA ACEL BERCAHAYA
+========================= */
+
+.nama-acel {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 10px 0 20px;
+
+    opacity: 0;
+}
+
+
+/* Saat halaman Happy Birthday muncul */
+
+#ucapan-ulang-tahun.aktif .nama-acel {
+    animation: namaMuncul 2s ease forwards;
+}
+
+
+/* TULISAN ACEL */
+
+.teks-acel {
+    font-size: 65px;
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    color: white;
+
+    text-shadow:
+        0 0 5px white,
+        0 0 10px #ff85a1,
+        0 0 20px #ff4d6d,
+        0 0 40px #ff4d6d;
+
+    animation:
+        glowAcel 1.5s ease-in-out infinite alternate;
+}
+
+
+/* LOVE */
+
+.love-kiri,
+.love-kanan {
+    font-size: 30px;
+
+    animation:
+        loveAcel 1s ease-in-out infinite alternate;
+}
+
+
+/* LOVE KANAN BERBEDA WAKTU */
+
+.love-kanan {
+    animation-delay: 0.5s;
+}
+
+
+/* NAMA MUNCUL */
+
+@keyframes namaMuncul {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.5);
+    }
+
+    60% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1.15);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* CAHAYA NAMA */
+
+@keyframes glowAcel {
+
+    from {
+        text-shadow:
+            0 0 5px white,
+            0 0 10px #ff85a1,
+            0 0 20px #ff4d6d;
+
+        transform: scale(1);
+    }
+
+    to {
+        text-shadow:
+            0 0 10px white,
+            0 0 20px #ff85a1,
+            0 0 40px #ff4d6d,
+            0 0 70px #ff4d6d;
+
+        transform: scale(1.06);
+    }
+}
+
+
+/* LOVE BERDENYUT */
+
+@keyframes loveAcel {
+
+    from {
+        transform:
+            scale(0.8)
+            rotate(-10deg);
+    }
+
+    to {
+        transform:
+            scale(1.3)
+            rotate(10deg);
+    }
+}
+
+/* =========================
+   KELOPAK BUNGA JATUH
+========================= */
+
+.kelopak {
+    position: fixed;
+    top: -50px;
+
+    z-index: 999;
+    pointer-events: none;
+
+    opacity: 0.85;
+
+    animation: kelopakJatuh linear forwards;
+}
+
+
+@keyframes kelopakJatuh {
+
+    0% {
+        transform:
+            translateY(-50px)
+            translateX(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    25% {
+        transform:
+            translateY(25vh)
+            translateX(30px)
+            rotate(90deg);
+    }
+
+    50% {
+        transform:
+            translateY(50vh)
+            translateX(-30px)
+            rotate(180deg);
+    }
+
+    75% {
+        transform:
+            translateY(75vh)
+            translateX(40px)
+            rotate(270deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            translateX(-20px)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+/* =========================
+   TIUP LILIN
+========================= */
+
+.flame.padam {
+    animation: apiPadam 0.5s ease forwards;
+}
+
+@keyframes apiPadam {
+
+    0% {
+        opacity: 1;
+        transform:
+            translateX(-50%)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            translateY(-15px)
+            scale(0);
+    }
+}
+
+
+/* ASAP */
+
+.asap-lilin {
+    position: absolute;
+
+    left: 50%;
+    top: -35px;
+
+    font-size: 25px;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    animation:
+        asapNaik 2s ease-out forwards;
+}
+
+
+@keyframes asapNaik {
+
+    0% {
+        opacity: 0.8;
+
+        transform:
+            translateX(-50%)
+            translateY(0)
+            scale(0.5);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateX(-30%)
+            translateY(-80px)
+            scale(1.8);
+    }
+}
+
+
+/* Tombol setelah lilin ditiup */
+
+#tombol-tiup.selesai {
+    opacity: 0.6;
+    cursor: default;
+}
+
+/* =========================
+   MAGIC SPARKLE
+   LAPTOP + HP
+========================= */
+
+.sparkle-mouse {
+    position: fixed;
+    pointer-events: none;
+    z-index: 999999;
+
+    transform: translate(-50%, -50%);
+
+    animation: sparkleHilang 0.9s ease-out forwards;
+}
+
+@keyframes sparkleHilang {
+
+    0% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(0.5)
+            rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.5)
+            rotate(180deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(0)
+            rotate(360deg);
+    }
+}
+
+@keyframes backgroundBergerak {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* =========================
+   ANIMASI 17 - TOMBOL GLOW
+========================= */
+
+button {
+    position: relative;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
+    box-shadow:
+        0 4px 15px rgba(255, 255, 255, 0.25);
+}
+
+
+/* LAPTOP - SAAT MOUSE DI ATAS TOMBOL */
+
+button:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 10px white,
+        0 0 20px #ff85a1,
+        0 0 35px #ff4d6d;
+}
+
+
+/* HP - SAAT TOMBOL DISENTUH */
+
+button:active {
+    transform: scale(0.95);
+
+    box-shadow:
+        0 0 15px white,
+        0 0 30px #ff85a1,
+        0 0 45px #ff4d6d;
+}
+
+/* =========================
+   ANIMASI 18 - JUDUL BERKILAU
+========================= */
+
+h1 {
+    position: relative;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #ffffff 35%,
+        #ffd6e0 45%,
+        #fff7a8 50%,
+        #ffd6e0 55%,
+        #ffffff 65%,
+        #ffffff 100%
+    );
+
+    background-size: 250% auto;
+
+    color: transparent;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    animation: kilauJudul 4s linear infinite;
+}
+
+
+/* CAHAYA BERGERAK */
+
+@keyframes kilauJudul {
+
+    0% {
+        background-position: 200% center;
+    }
+
+    100% {
+        background-position: -200% center;
+    }
+}
+
+/* =========================
+   ANIMASI 21 - LOVE SAAT KLIK
+========================= */
+
+.love-klik {
+    position: fixed;
+    pointer-events: none;
+    z-index: 999999;
+
+    font-size: 25px;
+
+    transform: translate(-50%, -50%);
+
+    animation: loveKlikNaik 1.2s ease-out forwards;
+}
+
+@keyframes loveKlikNaik {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.5)
+            rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -100px)
+            scale(1.3)
+            rotate(15deg);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -160px)
+            scale(0.8)
+            rotate(-15deg);
+    }
+}
+
+/* =========================
+   ANIMASI 22 - GLOW FOTO & VIDEO
+========================= */
+
+.galeri,
+video {
+    box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.35),
+        0 0 30px rgba(255, 133, 161, 0.30);
+
+    animation: glowMedia 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowMedia {
+
+    0% {
+        box-shadow:
+            0 0 10px rgba(255, 255, 255, 0.25),
+            0 0 20px rgba(255, 133, 161, 0.20);
+    }
+
+    100% {
+        box-shadow:
+            0 0 20px rgba(255, 255, 255, 0.60),
+            0 0 40px rgba(255, 133, 161, 0.50),
+            0 0 55px rgba(255, 77, 109, 0.25);
+    }
+}
+
+/* =========================
+   ANIMASI 24 - PENUTUP CINEMATIC
+========================= */
+
+/* Judul penutup */
+#penutup.aktif h1 {
+    animation: penutupJudul 2s ease forwards;
+}
+
+/* Kalimat penutup */
+#penutup.aktif p {
+    opacity: 0;
+    animation: penutupTeks 2s ease 1s forwards;
+}
+
+/* Happy Birthday Acel */
+#penutup.aktif h2 {
+    opacity: 0;
+    animation: penutupNama 2s ease 2s forwards;
+}
+
+/* Tombol Mulai Lagi */
+#penutup.aktif button {
+    opacity: 0;
+    animation: penutupTombol 1.5s ease 3s forwards;
+}
+
+
+/* JUDUL */
+
+@keyframes penutupJudul {
+
+    0% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* TEKS */
+
+@keyframes penutupTeks {
+
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* HAPPY BIRTHDAY */
+
+@keyframes penutupNama {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+        letter-spacing: 0px;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        letter-spacing: 3px;
+
+        text-shadow:
+            0 0 10px white,
+            0 0 20px #ff85a1,
+            0 0 40px #ff4d6d;
+    }
+}
+
+
+/* TOMBOL */
+
+@keyframes penutupTombol {
+
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   ANIMASI 25
+   CAHAYA TEPI LAYAR
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    z-index: 99990;
+
+    border: 2px solid transparent;
+
+    box-shadow:
+        inset 0 0 15px rgba(255, 255, 255, 0.15),
+        inset 0 0 30px rgba(255, 133, 161, 0.15);
+
+    animation: cahayaTepi 4s ease-in-out infinite alternate;
+}
+
+
+@keyframes cahayaTepi {
+
+    0% {
+        box-shadow:
+            inset 0 0 10px rgba(255, 255, 255, 0.15),
+            inset 0 0 20px rgba(255, 133, 161, 0.15);
+    }
+
+    100% {
+        box-shadow:
+            inset 0 0 20px rgba(255, 255, 255, 0.35),
+            inset 0 0 45px rgba(255, 133, 161, 0.30),
+            inset 0 0 60px rgba(255, 77, 109, 0.15);
+    }
+}
